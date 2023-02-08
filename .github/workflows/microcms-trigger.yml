@@ -1,0 +1,21 @@
+name: microCMS-trigger
+on:
+  repository_dispatch:
+    types: [post]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Echo A
+        uses: cat ${{ github.event }}
+
+      - name: Echo B
+        uses: cat ${{ github.event.client_payload }}
+    
+      - name: Echo C
+        uses: cat ${{ github.event_path }}
