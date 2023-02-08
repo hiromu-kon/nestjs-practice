@@ -12,10 +12,10 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Echo A
-        run: cat ${{ github.event }}
+        run: echo ${{ github.event }}
 
       - name: Echo B
-        run: cat ${{ github.event.client_payload }}
+        run: echo ${{ github.event.client_payload }}
     
       - name: Echo C
-        run: cat ${{ github.event_path }}
+        run: echo ${{ github.event_path }}
